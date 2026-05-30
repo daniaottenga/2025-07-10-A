@@ -1,5 +1,4 @@
 from datetime import datetime
-
 import flet as ft
 
 
@@ -18,10 +17,19 @@ class View(ft.UserControl):
         self._controller = None
         # graphical elements
         self._title = None
-        self.txt_name = None
-        self.btn_hello = None
+        self._ddcategory = None
+        self._dp1 = None
+        self._btnCal1 = None
+        self._dp2 = None
+        self._btnCal2 = None
+        self._btnCreaGrafo = None
+        self._btnBestProdotti = None
+        self._txtInLun = None
+        self._ddProdStart = None
+        self._ddProdEnd = None
+        self._btnCercaCammino = None
         self.txt_result = None
-        self.txt_container = None
+
 
     def load_interface(self):
         # title
@@ -29,6 +37,7 @@ class View(ft.UserControl):
         self._page.controls.append(self._title)
 
         self._ddcategory = ft.Dropdown(label="Category", width=200)
+        self._controller.fillDDCategory()
 
         self._dp1 = ft.DatePicker(
             on_change=lambda e: print(f"Giorno selezionato: {self._dp1.value}"),
